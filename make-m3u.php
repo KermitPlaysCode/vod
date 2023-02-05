@@ -1,5 +1,8 @@
 <?php
 
+require_once('config.php');
+global $config;
+
 $ROOT_DIR = $config['root_dir'];
 $HOME_DIR = $config['home_dir'];
 $CUR_DIR = "";
@@ -10,7 +13,7 @@ else return 0;
 if(array_key_exists('f', $_GET)) $CUR_FILE = $_GET['f'];
 else return 0;
 
-$uri = "https://".$_SERVER['SERVER_NAME']."/".$HOME_DIR.$CUR_DIR.$CUR_FILE;
+$uri = "https://".$_SERVER['SERVER_NAME'].'/'.$HOME_DIR.$CUR_DIR.$CUR_FILE;
 
 header('Content-type: application/x-mpegurl');
 header('Content-Disposition: attachment; filename="movie.m3u"');
